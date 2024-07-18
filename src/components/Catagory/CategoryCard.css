@@ -1,0 +1,65 @@
+/* CategoryCard.css */
+.category-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 16px;
+    text-align: left;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 300px;
+}
+
+.category-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.category-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-card-image-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.category-card-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.category-card-info {
+    margin-top: 12px;
+}
+
+.category-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0;
+    color: #333;
+    line-height: 1.5;
+    height: 48px;
+    overflow: hidden;
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+}
+
+.category-card-price {
+    font-size: 18px;
+    color: #b12704;
+    margin: 8px 0;
+}
+
+.category-card-shop-now {
+    font-size: 14px;
+    color: #007185;
+    margin: 8px 0;
+    font-weight: bold;
+}

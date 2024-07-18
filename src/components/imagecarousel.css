@@ -1,0 +1,30 @@
+.con {
+	width: 94%;
+	margin: 0 auto;
+}
+.carousel-control-prev {
+	padding-right: 100px;
+}
+.carousel-control-next {
+	padding-left: 110px;
+	float: left;
+	padding-right: 0;
+}
+.hero_img {
+	position: relative;
+}
+.carousel-indicators {
+    display: none;
+}
+.hero_img::before {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	width: 100%;
+	height: 300px;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255)
+	);
+}

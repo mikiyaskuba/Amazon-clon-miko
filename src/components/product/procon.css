@@ -1,0 +1,35 @@
+.product_con {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1450px;
+    margin: 100px auto;
+    gap: 55px;
+    justify-items: center;
+   
+}
+.product_con section {
+    margin: 0 auto;
+}
+@media (max-width: 1200px) {
+	.product_con {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 992px) {
+.product_con {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.product_con {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 576px) {
+	.product_con {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

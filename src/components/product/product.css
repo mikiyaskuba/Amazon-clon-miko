@@ -1,0 +1,133 @@
+.card_container {
+	width: 250px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	position: relative;
+	transition: transform 0.3s;
+}
+.card_container:hover {
+	transform: scale(1.05);
+}
+.card_container:hover .button {
+	display: block;
+}
+.card_container img {
+	padding: 10px;
+	width: 100%;
+	height: 200px;
+	object-fit: contain;
+}
+.card_container .button {
+	background-color: #febd69;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: none;
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+	font-weight: 700;
+	margin: 10px 0;
+	border-radius: 30px;
+}
+.button:hover {
+	background-color: #d49644;
+}
+.rating {
+	display: flex;
+	align-items: center;
+	padding: 10px 0px;
+}
+/* .product_con {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 1450px;
+    margin: 100px auto;
+    gap: 30px;
+    justify-items: center;
+    padding: 0 20px;
+} */
+
+/* .card_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.card_container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card_container h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.card_container .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_container .button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    color: #111;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card_container .button:hover {
+    background-color: #ddb347;
+}
+
+.card_container:hover {
+    transform: scale(1.05);
+} */
+
+.flex-given {
+	box-shadow: none;
+	height: auto;
+	display: flex;
+	gap: 50px;
+	width: 100%;
+}
+.flex-given h3 {
+	padding: 20px 0px;
+}
+.flex-given .button {
+	display: block;
+	position: static;
+	width: 150px;
+	margin-right: 40px;
+}
+.flex-given {
+	height: 50vh;
+}
+.flex-given img {
+	width: 300px !important;
+	height: auto;
+}
+.flex-given:hover {
+	transform: none;
+}
+@media screen and (max-width: 768px) {
+	.flex-given {
+		display: flex;
+		flex-direction: column;
+	}
+}
