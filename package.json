@@ -17,6 +17,7 @@
 		"@emotion/styled": "^11.11.5",
 		"@mui/material": "^5.15.21",
 		"@popperjs/core": "^2.11.8",
+		"github-pages": "^3.0.2",
 		"axios": "^1.7.2",
 		"bootstrap": "^5.3.3",
 		"firebase": "^10.12.3",
