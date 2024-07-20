@@ -1,26 +1,27 @@
 import "./App.css";
-import Category from "./components/Catagory/Category.jsx";
-import Header from "./components/Header";
-import ImageCarousel from "./components/ImageCarousel";
-import Product from "./components/product/Product.jsx";
-import Landing from "./pages/Landing/Landing.jsx";
-import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import Routing from "./Router.jsx";
-
-// import Nav from './components/Nav'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { auth } from "./util/firebase.js";
+import { useEffect } from "react";
+import { useUser } from "./userContext";
 
 function App() {
+	const { user, dispatch } = useUser();
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			if (user) {
+				dispatch({ type: "SET_USER", user });
+			} else {
+				dispatch({ type: "SET_USER", user: null });
+			}
+		});
+		return () => unsubscribe();
+	}, [dispatch]);
+
 	return (
 		<div className="App">
-			
-			{/* <Nav/> */}
-
-			{/* <ImageCarousel />
-			<Category />
-			<Product /> */}
-            {/* <Landing/> */}
-            <Routing/>
-        
+			<Routing />
 		</div>
 	);
 }

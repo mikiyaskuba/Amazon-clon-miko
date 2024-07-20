@@ -69,7 +69,12 @@
 
 
 }
-
+.login__signInButton{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 .login__signInButton:hover{
     background-color: #d49644;
 }

@@ -292,11 +292,14 @@ import { BsSearch, BsFillPersonFill, BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { SlLocationPin } from "react-icons/sl";
 import { useCart } from "../CartContext";
+import { useUser } from "../userContext";
 import "./header.css";
 import Nav from "./Nav";
+import { auth } from "../util/firebase";
 
 function Header() {
 	const { cart } = useCart();
+    const { user } = useUser()
 
 	const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -350,10 +353,22 @@ function Header() {
 						</select>
 					</div>
 
-					<Link className="header__option" to="/auth">
+					<Link className="header__option" to={!user && "/auth"}>
 						<div>
-							<p>Hello, Sign In</p>
-							<span>Account & Lists</span>
+							{user ? (
+								<>
+									<p>Hello {user?.email?.split("@")[0]}</p>
+									<span onClick={()=>{
+                                        auth.signOut();
+                                    }}>Sign Out</span>
+								</>
+							) : (
+								<>
+									<p>Sign In</p>
+									<span>Account & Lists</span>
+								</>
+							)}
+
 							<BsFillPersonFill className="header__icon" />
 						</div>
 					</Link>
