@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import "./signup.css";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../util/firebase";
 import {
 	signInWithEmailAndPassword,
@@ -8,6 +7,7 @@ import {
 } from "firebase/auth";
 import { useUser } from "../../userContext";
 import Spinner from "react-bootstrap/Spinner";
+import "./signup.css";
 
 function Auth() {
 	const [email, setEmail] = useState("");
@@ -16,8 +16,17 @@ function Auth() {
 	const { dispatch } = useUser();
 	const [loadingSignIn, setLoadingSignIn] = useState(false);
 	const [loadingSignUp, setLoadingSignUp] = useState(false);
-    const navigate = useNavigate();
-    
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location) {
+			console.log("Received state from navigate:", location);
+		} else {
+			console.log("No state received");
+		}
+	}, [location]);
 
 	const authHandler = async (e) => {
 		e.preventDefault();
@@ -36,13 +45,15 @@ function Auth() {
 			setEmail("");
 			setPassword("");
 			setError("");
+
+			const redirectPath = location.state?.redirect || "/";
+			navigate(redirectPath);
 		} catch (err) {
 			console.log(err);
 			setError(err.message);
 		} finally {
 			if (action === "signin") {
 				setLoadingSignIn(false);
-                navigate("/");
 			} else {
 				setLoadingSignUp(false);
 			}
@@ -89,10 +100,7 @@ function Auth() {
 						className="login__signInButton"
 						disabled={loadingSignIn}
 					>
-						{/* let use react spinner for loader by using bootsrap spinner*/}
-
-						{loadingSignIn ? <Spinner style={{}} /> : "Sign In"}
-						{/* {loadingSignIn ? "Signing In..." : "Sign In"} */}
+						{loadingSignIn ? <Spinner /> : "Sign In"}
 					</button>
 				</form>
 				<p>
@@ -108,12 +116,8 @@ function Auth() {
 					className="login__createAccountButton"
 					disabled={loadingSignUp}
 				>
-					{/* let use react spinner for loader by using bootsrap spinner and lets add style to center the spinner on button */}
-					{loadingSignUp ? <Spinner style={{}} /> : "Create your Account"}
-
-					{/* {loadingSignUp ? "Creating Account..." : "Create your Amazon Account"} */}
+					{loadingSignUp ? <Spinner /> : "Create your Account"}
 				</button>
-
 			</div>
 		</div>
 	);

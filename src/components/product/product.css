@@ -121,6 +121,7 @@
 .flex-given img {
 	width: 300px !important;
 	height: auto;
+   
 }
 .flex-given:hover {
 	transform: none;

@@ -1,0 +1,21 @@
+.orders {
+    padding: 20px;
+}
+
+.orders__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.orders__item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.orders__products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
